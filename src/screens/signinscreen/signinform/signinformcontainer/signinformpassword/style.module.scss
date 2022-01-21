@@ -1,0 +1,73 @@
+.Modals__container {
+   position: relative;
+}
+
+.ForgotPassword__Title {
+   color: black;
+   align-self: flex-start;
+   font-size: 36px;
+   font-weight: 700;
+   margin-top: 48px;
+   margin-bottom: 32px;
+   padding-left: 33px;
+}
+
+.ForgotPassword__Text {
+   color: black;
+   width: 450px;
+   padding-bottom: 25px;
+}
+
+.ForgotPassword__Input {
+   height: 44px;
+   width: 466px;
+   background: #f7f7f7;
+   padding-left: 15px;
+}
+
+.ForgotPassword__Input::placeholder {
+   font-size: 16px;
+}
+
+.Password__Input {
+   height: 44px;
+   background-color: #333243;
+   padding-left: 24px;
+   position: relative;
+   display: inline-block;
+   width: 100%;
+   min-width: 0;
+   padding: 4px 11px;
+}
+
+.Password_Form {
+   position: relative;
+}
+
+.Eye {
+   position: absolute;
+   right: 25px;
+   top: 15px;
+}
+
+.Forgot__Password__Modal__Text {
+   align-self: flex-end;
+   color: #fff;
+   font-size: 12px;
+   font-weight: 500;
+   margin-top: 12px;
+   display: flex;
+   cursor: pointer;
+}
+
+.Forgot__Password {
+   display: flex;
+   flex-direction: column;
+}
+
+.Close {
+   position: absolute;
+   top: 25px;
+   right: 25px;
+   cursor: pointer;
+}

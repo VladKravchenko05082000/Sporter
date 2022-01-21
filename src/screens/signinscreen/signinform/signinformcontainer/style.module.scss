@@ -1,0 +1,34 @@
+@import '../../../../styles/fonts/fontsSettings/fonts.scss';
+@import '../../../../styles/color.scss';
+.SignIn__Form__Container {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   background-color: $container-background;
+   border-radius: 5px;
+   height: 450px;
+}
+
+.SignIn__Form__Title h1 {
+   color: $white;
+   font-family: $font-bold;
+   font-size: 32px;
+   margin-top: 51px;
+}
+
+.SignIn__Form__Input__Container {
+   display: flex;
+   flex-direction: column;
+   padding: 63px 108px 10px;
+   width: 683px;
+}
+
+.SignIn__Form__Email__Login {
+}
+
+.SignIn__Form__Password {
+}
+
+.SignIn__Form__Button {
+}

@@ -1,0 +1,24 @@
+@font-face {
+   font-family: 'SFProDisplay-Bold';
+   src: url('../fontsSource/SF-Pro-Display-Bold.otf');
+}
+
+@font-face {
+   font-family: 'SFProDisplay-Light';
+   src: url('../fontsSource/SF-Pro-Display-Light.otf');
+}
+
+@font-face {
+   font-family: 'SFProDisplay-Medium';
+   src: url('../fontsSource/SF-Pro-Display-Medium.otf');
+}
+
+@font-face {
+   font-family: 'SFProDisplay-Regular';
+   src: url('../fontsSource/SF-Pro-Display-Regular.otf');
+}
+
+$font-regular: 'SFProDisplay-Regular';
+$font-bold: 'SFProDisplay-Bold';
+$font-medium: 'SFProDisplay-Medium';
+$font-light: 'SFProDisplay-Light';

@@ -1,0 +1,17 @@
+.Login_Email_Input {
+   height: 44px;
+   width: 466px;
+   background-color: #333243;
+}
+
+.Login_Email__Form {
+   height: 44px;
+   position: relative;
+   display: inline-block;
+   margin-bottom: 25px;
+}
+
+.Login_Email_Input::placeholder {
+   font-size: 16px;
+   padding: 0px 0px 0px 15px;
+}

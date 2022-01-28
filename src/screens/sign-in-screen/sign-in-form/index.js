@@ -1,20 +1,20 @@
 import React from 'react';
-import { IMAGES } from 'utils/constants/images-constant';
-import SignInFormContainer from './signinformcontainer';
+import { IMAGES } from 'utils/images-constant';
+import SignInFormContainer from './sign-in-form-container';
 import style from './style.module.scss';
 
 const SignInForm = () => {
    return (
       <div>
-         <div className={style.SignIn__Header}>
-            <div className={style.SignIN__Header__Logo}>
+         <div className={style.signIn__header}>
+            <div className={style.signIN__header__logo}>
                <img src={IMAGES.SPORTER__LOGO} alt="Sporter__Logo" />
             </div>
-            <div className={style.SignIN__Header__Title}>
+            <div className={style.signIn__header__title}>
                <h2>Admin panel</h2>
             </div>
          </div>
-         <div className={style.SignIn__Form__Container}>
+         <div className={style.signIn__form__container}>
             <SignInFormContainer />
          </div>
       </div>

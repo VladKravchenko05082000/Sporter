@@ -1,0 +1,30 @@
+.sighIn__input {
+  height: 44px;
+  width: 466px;
+  background-color: #333243;
+  color: white;
+  padding-left: 15px;
+}
+
+.sighIn__input__white {
+  height: 44px;
+  width: 466px;
+  background: #f7f7f7;
+  padding-left: 15px;
+}
+
+.sighIn__input::placeholder {
+  font-size: 16px;
+}
+
+.input__container {
+  position: relative;
+}
+
+.error__massage {
+  position: absolute;
+  padding-top: 5px;
+  width: 70%;
+  color: #d84363;
+  font-size: 14px;
+}

@@ -1,2 +1,2 @@
-export { default as SignInScreen } from './signinscreen';
-export { default as PrivateRoute } from './privateRoute';
+export { default as SignInScreen } from './sign-in-screen';
+export { default as PrivateRoute } from './private-Route';

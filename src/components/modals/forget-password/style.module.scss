@@ -1,0 +1,61 @@
+.modals__container {
+  position: relative;
+}
+
+.forgot__password__modal__text {
+  align-self: flex-end;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 500;
+  margin-top: 12px;
+  display: flex;
+  cursor: pointer;
+}
+
+.forgotPassword__Title {
+  color: black;
+  align-self: flex-start;
+  font-size: 36px;
+  font-weight: 700;
+  margin-top: 48px;
+  margin-bottom: 32px;
+}
+
+.forgotPassword__text {
+  color: black;
+  width: 450px;
+  padding-bottom: 25px;
+}
+
+.forgotPassword__input {
+  height: 44px;
+  width: 466px;
+  background: #f7f7f7;
+  padding-left: 15px;
+}
+
+.forgotPassword__input::placeholder {
+  font-size: 16px;
+}
+
+.Close {
+  position: absolute;
+  top: 5px;
+  right: -25px;
+  cursor: pointer;
+}
+
+.button__container {
+  margin-left: -30px;
+}
+
+.error__popup__massage {
+  align-self: flex-start;
+  padding-top: 15px;
+  color: rgba(255, 0, 0, 0.705);
+}
+
+.error__password__input {
+  padding-top: 10px;
+  color: rgba(255, 0, 0, 0.705);
+}

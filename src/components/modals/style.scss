@@ -1,37 +1,37 @@
 .Modal {
-   width: 100vw;
-   height: 100vh;
-   background-color: rgba(0, 0, 0, 0.5);
-   position: fixed;
-   top: 0;
-   left: 0;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   opacity: 0;
-   pointer-events: none;
-   transition: 0.5s;
-   color: white;
-   z-index: 2;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.5s;
+  color: black;
+  z-index: 2;
 }
 
 .Modal.active {
-   opacity: 1;
-   pointer-events: all;
+  opacity: 1;
+  pointer-events: all;
 }
 
 .Modal__container {
-   padding: 20px;
-   background-color: white;
-   transform: scale(0.5);
-   transition: 0.5s all;
-   width: 15vw;
-   display: flex;
-   flex-direction: column;
-   justify-content: center;
-   align-items: center;
+  padding: 20px;
+  background-color: white;
+  transform: scale(0.5);
+  transition: 0.5s all;
+  width: 550px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .Modal__container.active {
-   transform: scale(1);
+  transform: scale(1);
 }

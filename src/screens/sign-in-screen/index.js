@@ -1,10 +1,10 @@
 import React from 'react';
-import SignInForm from './signinform';
+import SignInForm from './sign-in-form';
 import style from './style.module.scss';
 
 const SignInScreen = () => {
    return (
-      <div className={style.SignIn__container}>
+      <div className={style.signIn__container}>
          <SignInForm />
       </div>
    );

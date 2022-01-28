@@ -1,7 +1,7 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { PrivateRoute, SignInScreen } from 'screens';
-import NotFoundPage from 'components/error-notfoundpage';
+import NotFoundPage from 'components/error-NotFoundPage';
 
 const Navigator = () => {
    return (

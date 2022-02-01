@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { validate } from "utils/validate";
+import { validate } from "utils/validate/validate";
 
 import EyeIcon from "components/eye-icon";
 

@@ -1,4 +1,4 @@
-import { REGEX } from "./regex/regex";
+import { REGEX } from "utils/regex/regex";
 
 export const validate = (text, type) => {
   if (text) {

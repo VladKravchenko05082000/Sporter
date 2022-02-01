@@ -1,18 +1,31 @@
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 import ButtonPurple from "components/purple-button";
 import Input from "components/input";
 import Modals from "components/modals";
 import ForgetPassword from "components/modals/forget-password";
 
-import style from "./style.module.scss";
+import { requestLogin } from "store/reducers/auth/action";
 
+import style from "./style.module.scss";
+import LoaderBox from "components/loaderBox";
 const SignInFormContainer = () => {
   const [email, setEmail] = useState("");
 
   const [password, setPassword] = useState("");
 
   const [modalActive, setModalActive] = useState(false);
+
+  const dispatch = useDispatch();
+
+  const { isAuth } = useSelector((state) => state.authReducer.isAuth);
+
+  const { status } = useSelector((state) => state.authReducer.status);
+
+  const handleSignIn = () => {
+    dispatch(requestLogin(email, password));
+  };
 
   return (
     <div className={style.signIn__form__container}>
@@ -50,7 +63,11 @@ const SignInFormContainer = () => {
         </div>
       </div>
       <div>
-        <ButtonPurple text="Sign In" disabled={!!email && !!password} />
+        <ButtonPurple
+          text="Sign In"
+          disabled={!!email && !!password}
+          onClick={() => handleSignIn}
+        />
       </div>
 
       <Modals active={modalActive} setActive={setModalActive}>

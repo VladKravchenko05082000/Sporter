@@ -1,8 +1,10 @@
-import { combineReducers, createStore } from 'redux';
+import { applyMiddleware, createStore } from "redux";
 
-let reducers = combineReducers({});
+import rootReducer from "./rootReducer";
 
-const store = createStore(reducers);
+import ThunkMiddleware from "redux-thunk";
+
+const store = createStore(rootReducer, applyMiddleware(ThunkMiddleware));
 
 window.store = store;
 

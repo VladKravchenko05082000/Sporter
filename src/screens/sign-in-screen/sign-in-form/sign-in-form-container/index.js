@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router";
 
 import ButtonPurple from "components/purple-button";
 import Input from "components/input";
@@ -9,7 +10,7 @@ import ForgetPassword from "components/modals/forget-password";
 import { requestLogin } from "store/reducers/auth/action";
 
 import style from "./style.module.scss";
-import LoaderBox from "components/loaderBox";
+
 const SignInFormContainer = () => {
   const [email, setEmail] = useState("");
 
@@ -17,14 +18,19 @@ const SignInFormContainer = () => {
 
   const [modalActive, setModalActive] = useState(false);
 
+  const [signInError, setSignInError] = useState("");
+
   const dispatch = useDispatch();
 
-  const { isAuth } = useSelector((state) => state.authReducer.isAuth);
+  const { status } = useSelector((state) => state.authReducer);
 
-  const { status } = useSelector((state) => state.authReducer.status);
+  let navigate = useNavigate();
 
+  console.log(status);
   const handleSignIn = () => {
-    dispatch(requestLogin(email, password));
+    dispatch(requestLogin(email, password))
+      .then(navigate("all-users"))
+      .catch((e) => setSignInError(e));
   };
 
   return (
@@ -62,14 +68,18 @@ const SignInFormContainer = () => {
           </div>
         </div>
       </div>
+      {!!signInError ? (
+        <div className={style.wrong__password__or__email}>
+          Wrong password or email
+        </div>
+      ) : null}
       <div>
         <ButtonPurple
           text="Sign In"
           disabled={!!email && !!password}
-          onClick={() => handleSignIn}
+          onClick={handleSignIn}
         />
       </div>
-
       <Modals active={modalActive} setActive={setModalActive}>
         <ForgetPassword setModalActive={setModalActive} />
       </Modals>

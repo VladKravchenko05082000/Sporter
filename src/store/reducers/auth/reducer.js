@@ -1,6 +1,6 @@
 import { STATUSES } from "utils/status-constant/status-constant";
 
-import { LOGIN } from "./action";
+import { LOGIN, LOGOUT } from "./action";
 
 import { CONSTANTS } from "utils/global/global";
 
@@ -8,8 +8,9 @@ const { AUTH_TOKEN, AUTH__USER } = CONSTANTS;
 
 const initialState = {
   authUser: localStorage.getItem(AUTH__USER),
-  token: localStorage.getItem(AUTH_TOKEN),
-  isAuth: false,
+  token: localStorage.getItem(AUTH_TOKEN)
+    ? localStorage.getItem(AUTH_TOKEN)
+    : "",
   status: STATUSES.INIT,
 };
 
@@ -20,11 +21,12 @@ const authReducer = (state = initialState, action) => {
         ...state,
         authUser: action.data,
         token: action.data.auth_token,
-        isAuth: true,
         status: STATUSES.READY,
       };
     }
-
+    case LOGOUT: {
+      return initialState;
+    }
     default:
       return state;
   }

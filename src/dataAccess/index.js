@@ -6,11 +6,11 @@ export const instance = axios.create({
   baseURL: API_CONFIG.URL,
 });
 
-// instance.interceptors.request.use((config) => {
-//   const token = localStorage.getItem("AUTH_TOKEN")
-//     ? JSON.parse(localStorage.getItem("AUTH_TOKEN"))
-//     : "";
-//   config.headers.Authorization = token;
+instance.interceptors.request.use((config) => {
+  const token = localStorage.getItem("AUTH_TOKEN")
+    ? JSON.parse(localStorage.getItem("AUTH_TOKEN"))
+    : "";
+  config.headers.Authorization = token;
 
-//   return config;
-// });
+  return config;
+});

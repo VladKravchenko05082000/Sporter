@@ -1,155 +1,167 @@
-@import '../../../../styles/fonts/fontsSettings/fonts.scss';
-@import '../../../../styles/color.scss';
+@import "../../../../styles/fonts/fontsSettings/fonts.scss";
+@import "../../../../styles/color.scss";
 .signIn__form__container {
-   display: flex;
-   flex-direction: column;
-   justify-content: center;
-   align-items: center;
-   background-color: $container-background;
-   border-radius: 5px;
-   height: 450px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: $container-background;
+  border-radius: 5px;
+  height: 450px;
 }
 
 .signIn__form__title h1 {
-   color: $white;
-   font-family: $font-bold;
-   font-size: 32px;
-   margin-top: 51px;
+  color: $white;
+  font-family: $font-bold;
+  font-size: 32px;
+  margin-top: 51px;
 }
 
 .signIn__form__input__container {
-   display: flex;
-   flex-direction: column;
-   padding: 63px 108px 10px;
-   width: 683px;
+  display: flex;
+  flex-direction: column;
+  padding: 63px 108px 10px;
+  width: 683px;
 }
 
 .login_email_input {
-   height: 44px;
-   width: 466px;
-   background-color: #333243;
-   color: white;
-   padding-left: 15px;
+  height: 44px;
+  width: 466px;
+  background-color: #333243;
+  color: white;
+  padding-left: 15px;
 }
 
 .login_email__form {
-   height: 44px;
-   position: relative;
-   display: inline-block;
-   margin-bottom: 25px;
+  height: 44px;
+  position: relative;
+  display: inline-block;
+  margin-bottom: 25px;
 }
 
 .login_email_input::placeholder {
-   font-size: 16px;
+  font-size: 16px;
 }
 
 .error__email__input {
-   padding-top: 5px;
-   color: rgba(255, 0, 0, 0.705);
+  padding-top: 5px;
+  color: rgba(255, 0, 0, 0.705);
 }
 
 .modals__container {
-   position: relative;
+  position: relative;
 }
 
 .password__input {
-   height: 44px;
-   background-color: #333243;
-   padding-left: 24px;
-   position: relative;
-   display: inline-block;
-   width: 100%;
-   min-width: 0;
-   padding: 4px 11px;
-   color: white;
+  height: 44px;
+  background-color: #333243;
+  padding-left: 24px;
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  min-width: 0;
+  padding: 4px 11px;
+  color: white;
 }
 
 .password_form {
-   position: relative;
+  position: relative;
 }
 
 .eye {
-   display: none;
-   cursor: pointer;
+  display: none;
+  cursor: pointer;
 }
 
-.eye[type='checkbox'] + span {
-   position: absolute;
-   top: 13px;
-   width: 22px;
-   height: 22px;
-   background: url(../../../../assets/images/Eye_close.svg) no-repeat;
-   z-index: 2;
-   left: 425px;
+.eye[type="checkbox"] + span {
+  position: absolute;
+  top: 13px;
+  width: 22px;
+  height: 22px;
+  background: url(../../../../assets/images/Eye_close.svg) no-repeat;
+  z-index: 2;
+  left: 425px;
 }
 
-.eye[type='checkbox']:checked + span {
-   top: 15px;
-   background: url(../../../../assets/images/Eye_open.svg) no-repeat;
-   z-index: 2;
+.eye[type="checkbox"]:checked + span {
+  top: 15px;
+  background: url(../../../../assets/images/Eye_open.svg) no-repeat;
+  z-index: 2;
 }
 
 .eye__label span {
-   cursor: pointer;
+  cursor: pointer;
 }
 
 .forgot__password__modal__text {
-   align-self: flex-end;
-   color: #fff;
-   font-size: 12px;
-   font-weight: 500;
-   margin-top: 12px;
-   display: flex;
-   cursor: pointer;
+  align-self: flex-end;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 500;
+  margin-top: 12px;
+  display: flex;
+  cursor: pointer;
 }
 
 .forgot__password {
-   display: flex;
-   flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .forgotPassword__Title {
-   color: black;
-   align-self: flex-start;
-   font-size: 36px;
-   font-weight: 700;
-   margin-top: 48px;
-   margin-bottom: 32px;
-   padding-left: 33px;
+  color: black;
+  align-self: flex-start;
+  font-size: 36px;
+  font-weight: 700;
+  margin-top: 48px;
+  margin-bottom: 32px;
+  padding-left: 33px;
 }
 
 .forgotPassword__text {
-   color: black;
-   width: 450px;
-   padding-bottom: 25px;
+  color: black;
+  width: 450px;
+  padding-bottom: 25px;
 }
 
 .forgotPassword__input {
-   height: 44px;
-   width: 466px;
-   background: #f7f7f7;
-   padding-left: 15px;
+  height: 44px;
+  width: 466px;
+  background: #f7f7f7;
+  padding-left: 15px;
 }
 
 .forgotPassword__input::placeholder {
-   font-size: 16px;
+  font-size: 16px;
 }
 
 .Close {
-   position: absolute;
-   top: 25px;
-   right: 25px;
-   cursor: pointer;
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  cursor: pointer;
 }
 
 .error__popup__massage {
-   align-self: flex-start;
-   padding-left: 38px;
-   padding-top: 15px;
-   color: rgba(255, 0, 0, 0.705);
+  align-self: flex-start;
+  padding-left: 38px;
+  padding-top: 15px;
+  color: rgba(255, 0, 0, 0.705);
 }
 
 .error__password__input {
-   padding-top: 10px;
-   color: rgba(255, 0, 0, 0.705);
+  padding-top: 10px;
+  color: rgba(255, 0, 0, 0.705);
+}
+
+.wrong__password__or__email {
+  color: #d84363;
+  padding-left: 107px;
+  padding-top: 15px;
+  align-self: flex-start;
+}
+
+.ERRROR {
+  font-size: 60px;
+  color: rgba(255, 0, 0, 0.705);
 }

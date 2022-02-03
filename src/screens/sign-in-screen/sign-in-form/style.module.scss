@@ -1,17 +1,25 @@
+.signIn__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
 .signIn__header__title {
-   color: #fff;
-   font-size: 16px;
-   letter-spacing: 8px;
-   margin-bottom: 28px;
+  color: #fff;
+  font-size: 16px;
+  letter-spacing: 8px;
+  margin-bottom: 28px;
 }
 
 .signIN__header__logo {
-   max-width: 337px;
+  max-width: 337px;
 }
 
 .signIn__header {
-   display: flex;
-   flex-direction: column;
-   justify-content: center;
-   align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

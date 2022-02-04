@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router";
+import { useDispatch } from "react-redux";
 
 import ButtonPurple from "components/purple-button";
 import Input from "components/input";
@@ -22,15 +21,8 @@ const SignInFormContainer = () => {
 
   const dispatch = useDispatch();
 
-  const { status } = useSelector((state) => state.authReducer);
-
-  let navigate = useNavigate();
-
-  console.log(status);
   const handleSignIn = () => {
-    dispatch(requestLogin(email, password))
-      .then(navigate("all-users"))
-      .catch((e) => setSignInError(e));
+    dispatch(requestLogin(email, password)).catch((e) => setSignInError(e));
   };
 
   return (

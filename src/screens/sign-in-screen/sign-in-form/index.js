@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { IMAGES } from "utils/images-constant";
 import SignInFormContainer from "./sign-in-form-container";
 import style from "./style.module.scss";

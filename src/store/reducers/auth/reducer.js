@@ -1,6 +1,6 @@
 import { STATUSES } from "utils/status-constant/status-constant";
 
-import { LOGIN, LOGOUT } from "./action";
+import { LOGIN, LOGOUT, RESET_PASSWORD_SEND_CODE } from "./action";
 
 import { CONSTANTS } from "utils/global/global";
 
@@ -12,6 +12,7 @@ const initialState = {
     ? localStorage.getItem(AUTH_TOKEN)
     : "",
   status: STATUSES.INIT,
+  isCodeSent: null,
 };
 
 const authReducer = (state = initialState, action) => {
@@ -21,6 +22,13 @@ const authReducer = (state = initialState, action) => {
         ...state,
         authUser: action.data,
         token: action.data.auth_token,
+        status: STATUSES.READY,
+      };
+    }
+    case RESET_PASSWORD_SEND_CODE: {
+      return {
+        ...state,
+        isCodeSent: action.data,
         status: STATUSES.READY,
       };
     }

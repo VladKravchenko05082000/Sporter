@@ -6,7 +6,7 @@ import store from "./store/store";
 
 function App() {
   return (
-    <Suspense fallback={<h1>Чето тут есть</h1>}>
+    <Suspense fallback={null}>
       <Provider store={store}>
         <BrowserRouter>
           <Navigator />

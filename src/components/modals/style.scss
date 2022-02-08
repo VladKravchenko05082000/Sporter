@@ -30,6 +30,12 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  @media (max-width: 550px) {
+    width: 425px;
+  }
+  @media (max-width: 320px) {
+    width: 320px;
+  }
 }
 
 .Modal__container.active {

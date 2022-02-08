@@ -11,10 +11,24 @@
   font-size: 16px;
   letter-spacing: 8px;
   margin-bottom: 28px;
+  @media (max-width: 1024px) {
+    margin-bottom: 10px;
+  }
+  @media (max-width: 425px) {
+    margin-bottom: 10px;
+    font-size: 12px;
+    letter-spacing: 4px;
+  }
 }
 
 .signIN__header__logo {
   max-width: 337px;
+}
+
+.signIN__header__logo img {
+  @media (max-width: 425px) {
+    max-width: 250px;
+  }
 }
 
 .signIn__header {

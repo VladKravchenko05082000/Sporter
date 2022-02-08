@@ -4,25 +4,29 @@ import { useDispatch } from "react-redux";
 import ButtonPurple from "components/purple-button";
 import Input from "components/input";
 import Modals from "components/modals";
-import ForgetPassword from "components/modals/forget-password";
+import ForgetPasswordFirstStep from "components/modals/forget-password/forget-password-first-step";
 
 import { requestLogin } from "store/reducers/auth/action";
 
 import style from "./style.module.scss";
+import ForgetPasswordSecondStep from "components/modals/forget-password/forget-password-second-step";
 
 const SignInFormContainer = () => {
   const [email, setEmail] = useState("");
-
   const [password, setPassword] = useState("");
-
   const [modalActive, setModalActive] = useState(false);
-
   const [signInError, setSignInError] = useState("");
+  const [step, setStep] = useState(0);
 
   const dispatch = useDispatch();
 
   const handleSignIn = () => {
     dispatch(requestLogin(email, password)).catch((e) => setSignInError(e));
+  };
+
+  const closeModal = () => {
+    setStep(0);
+    setModalActive(false);
   };
 
   return (
@@ -65,16 +69,25 @@ const SignInFormContainer = () => {
           Wrong password or email
         </div>
       ) : null}
-      <div>
+      <div className={style.signIn__button}>
         <ButtonPurple
           text="Sign In"
           disabled={!!email && !!password}
           onClick={handleSignIn}
         />
       </div>
-      <Modals active={modalActive} setActive={setModalActive}>
-        <ForgetPassword setModalActive={setModalActive} />
-      </Modals>
+      {step === 0 ? (
+        <Modals active={modalActive} setActive={setModalActive}>
+          <ForgetPasswordFirstStep closeModal={closeModal} setStep={setStep} />
+        </Modals>
+      ) : (
+        <Modals active={modalActive} setActive={setModalActive}>
+          <ForgetPasswordSecondStep
+            closeModal={closeModal}
+            setModalActive={setModalActive}
+          />
+        </Modals>
+      )}
     </div>
   );
 };

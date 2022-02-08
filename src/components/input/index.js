@@ -5,6 +5,7 @@ import { validate } from "utils/validate/validate";
 import EyeIcon from "components/eye-icon";
 
 import style from "./style.module.scss";
+import EyeIconBlack from "components/eye-icon-black";
 
 const errors = {
   email: "Введите валидный Email",
@@ -17,7 +18,10 @@ const Input = ({
   type, // email, password
   setValue,
   rightIcon, // true or false, if true next to input appear IconComponent
+  rightIconBlack,
   setIsWhite,
+  setIsFocusedModal,
+  onFocusOff,
 }) => {
   const [isFocused, setIsFocused] = useState(false);
 
@@ -54,10 +58,12 @@ const Input = ({
 
   const onBlurHandler = () => {
     setIsFocused(false);
+    setIsFocusedModal(false);
   };
 
   const onFocusHandler = () => {
     setIsFocused(true);
+    setIsFocusedModal(true);
   };
 
   const toggleIcon = () => {
@@ -77,12 +83,14 @@ const Input = ({
         onBlur={onBlurHandler}
         onFocus={onFocusHandler}
       />
-      {!isFocused && !!error ? (
+      {!isFocused && !!error && !onFocusOff ? (
         <div className={style.error__massage}>{error}</div>
       ) : null}
-
       {rightIcon ? (
         <EyeIcon toggleIcon={toggleIcon} eyeActive={eyeActive} />
+      ) : null}
+      {rightIconBlack ? (
+        <EyeIconBlack toggleIcon={toggleIcon} eyeActive={eyeActive} />
       ) : null}
     </div>
   );

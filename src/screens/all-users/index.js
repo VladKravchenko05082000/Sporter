@@ -1,7 +1,6 @@
 import React from "react";
 
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router";
 
 import ButtonPurple from "components/purple-button";
 
@@ -12,8 +11,6 @@ import style from "./style.module.scss";
 const AllUsers = () => {
   const dispatch = useDispatch();
 
-  const navigate = useNavigate();
-
   const logoutHandle = () => {
     dispatch(logout()).then(window.location.reload());
   };
@@ -21,7 +18,7 @@ const AllUsers = () => {
   return (
     <div className={style.all__users}>
       <p>Greetings</p>
-      <ButtonPurple disabled={true} text={"Logout"} onClick={logoutHandle} />
+      <ButtonPurple disabled text={"Logout"} onClick={logoutHandle} />
     </div>
   );
 };

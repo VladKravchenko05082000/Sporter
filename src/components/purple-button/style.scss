@@ -15,11 +15,20 @@
   border-radius: 5px;
   align-self: flex-start;
   margin: 35px 36px 50px 32px;
+  @media (max-width: 1024px) {
+    width: 466px;
+    margin: 45px 36px 0px 32px;
+  }
+  @media (max-width: 660px) {
+    width: 320px;
+    margin: 45px 36px 0px 32px;
+  }
+  @media (max-width: 320px) {
+    width: 300px;
+    margin: 45px 36px 0px 32px;
+  }
 }
 
 .Button.white {
   color: white;
-}
-
-.button_text {
 }

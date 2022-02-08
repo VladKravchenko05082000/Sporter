@@ -6,21 +6,34 @@ import Input from "components/input";
 import ButtonPurple from "components/purple-button";
 
 import { IMAGES } from "utils/images-constant";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { requestResetPasswordSendCode } from "store/reducers/auth/action";
+import { STATUSES } from "utils/status-constant/status-constant";
+import LoaderBox from "components/loaderBox";
 
-const ForgetPassword = ({ setModalActive }) => {
+const ForgetPasswordFirstStep = ({ closeModal, setStep }) => {
+  const { READY, PENDING } = STATUSES;
+  const { status } = useSelector((state) => state.authReducer);
+
   const [emailModal, setEmailModal] = useState("");
   const [emailModalError, setEmailModalError] = useState("");
+  const [fetchStatus, setFetchStatus] = useState(status);
 
   const dispatch = useDispatch();
 
   const handleRestorePasswordSendCode = () => {
+    setFetchStatus(PENDING);
     dispatch(requestResetPasswordSendCode(emailModal))
-      .then(() => setEmailModal(""))
-      .then(() => setModalActive(false))
-      .then(() => window.location.reload())
-      .catch((e) => setEmailModalError(e));
+      .then(() => {
+        setEmailModal(emailModal);
+        setFetchStatus(READY);
+        setStep(1);
+      })
+      .catch((e) => {
+        setEmailModalError(e);
+        setEmailModal("");
+        setFetchStatus(READY);
+      });
   };
   return (
     <div className={style.modals__container}>
@@ -34,9 +47,10 @@ const ForgetPassword = ({ setModalActive }) => {
         setValue={setEmailModal}
         setIsWhite
       />
-      {!!emailModalError ? (
-        <div className={style.wrong__email}>Wrong email</div>
+      {emailModalError && !emailModal ? (
+        <div className={style.wrong__email}>No such user</div>
       ) : null}
+      {fetchStatus === PENDING ? <LoaderBox /> : null}
       <div className={style.button__container}>
         <ButtonPurple
           text="Next"
@@ -48,10 +62,10 @@ const ForgetPassword = ({ setModalActive }) => {
         src={IMAGES.CLOSE_BTN}
         alt="close"
         className={style.Close}
-        onClick={() => setModalActive(false)}
+        onClick={closeModal}
       />
     </div>
   );
 };
 
-export default ForgetPassword;
+export default ForgetPasswordFirstStep;

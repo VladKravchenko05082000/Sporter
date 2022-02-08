@@ -1,6 +1,7 @@
 @import "../../../../styles/fonts/fontsSettings/fonts.scss";
 @import "../../../../styles/color.scss";
 .signIn__form__container {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -8,6 +9,9 @@
   background-color: $container-background;
   border-radius: 5px;
   height: 450px;
+  @media (max-width: 660px) {
+    width: 466px;
+  }
 }
 
 .signIn__form__title h1 {
@@ -15,6 +19,9 @@
   font-family: $font-bold;
   font-size: 32px;
   margin-top: 51px;
+  @media (max-width: 1024px) {
+    margin-top: 0px;
+  }
 }
 
 .signIn__form__input__container {
@@ -22,14 +29,18 @@
   flex-direction: column;
   padding: 63px 108px 10px;
   width: 683px;
-}
-
-.login_email_input {
-  height: 44px;
-  width: 466px;
-  background-color: #333243;
-  color: white;
-  padding-left: 15px;
+  @media (max-width: 1024px) {
+    padding: 33px 280px 0px;
+    width: 1024px;
+  }
+  @media (max-width: 660px) {
+    padding: 33px 73px 0px;
+    width: 466px;
+  }
+  @media (max-width: 320px) {
+    padding: 33px 0px 0px;
+    width: 300px;
+  }
 }
 
 .login_email__form {
@@ -41,11 +52,6 @@
 
 .login_email_input::placeholder {
   font-size: 16px;
-}
-
-.error__email__input {
-  padding-top: 5px;
-  color: rgba(255, 0, 0, 0.705);
 }
 
 .modals__container {
@@ -68,31 +74,6 @@
   position: relative;
 }
 
-.eye {
-  display: none;
-  cursor: pointer;
-}
-
-.eye[type="checkbox"] + span {
-  position: absolute;
-  top: 13px;
-  width: 22px;
-  height: 22px;
-  background: url(../../../../assets/images/Eye_close.svg) no-repeat;
-  z-index: 2;
-  left: 425px;
-}
-
-.eye[type="checkbox"]:checked + span {
-  top: 15px;
-  background: url(../../../../assets/images/Eye_open.svg) no-repeat;
-  z-index: 2;
-}
-
-.eye__label span {
-  cursor: pointer;
-}
-
 .forgot__password__modal__text {
   align-self: flex-end;
   color: #fff;
@@ -101,6 +82,13 @@
   margin-top: 12px;
   display: flex;
   cursor: pointer;
+  @media (max-width: 1024px) {
+    align-self: center;
+    position: absolute;
+    bottom: 35px;
+    margin-top: 0px;
+    font-size: 16px;
+  }
 }
 
 .forgot__password {
@@ -159,6 +147,20 @@
   padding-left: 107px;
   padding-top: 15px;
   align-self: flex-start;
+  @media (max-width: 1024px) {
+    padding-top: 0px;
+    position: relative;
+    top: 35px;
+    padding-left: 280px;
+  }
+  @media (max-width: 660px) {
+    padding-left: 73px;
+    font-size: 12px;
+  }
+  @media (max-width: 320px) {
+    padding-left: 83px;
+    font-size: 12px;
+  }
 }
 
 .ERRROR {

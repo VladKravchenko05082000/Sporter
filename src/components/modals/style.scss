@@ -30,10 +30,13 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  @media (max-width: 550px) {
+  @media (max-width: 660px) {
     width: 425px;
   }
-  @media (max-width: 320px) {
+  @media (max-width: 660px) {
+    width: 375px;
+  }
+  @media (max-width: 375px) {
     width: 320px;
   }
 }

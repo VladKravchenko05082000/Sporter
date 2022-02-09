@@ -58,12 +58,16 @@ const Input = ({
 
   const onBlurHandler = () => {
     setIsFocused(false);
-    setIsFocusedModal(false);
+    if (onFocusOff) {
+      setIsFocusedModal(false);
+    }
   };
 
   const onFocusHandler = () => {
     setIsFocused(true);
-    setIsFocusedModal(true);
+    if (onFocusOff) {
+      setIsFocusedModal(true);
+    }
   };
 
   const toggleIcon = () => {

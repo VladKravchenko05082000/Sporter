@@ -1,5 +1,15 @@
 .modals__container {
   position: relative;
+  @media (max-width: 660px) {
+    width: 425px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  @media (max-width: 425px) {
+    width: 315px;
+  }
 }
 
 .forgotPassword__Title {
@@ -9,17 +19,37 @@
   font-weight: 700;
   margin-top: 48px;
   margin-bottom: 32px;
+  @media (max-width: 1024px) {
+    margin-top: 20px;
+  }
+  @media (max-width: 660px) {
+    align-self: center;
+    margin-bottom: 12px;
+  }
+  @media (max-width: 425px) {
+    font-size: 32px;
+  }
 }
 
 .forgotPassword__text {
   color: black;
   width: 450px;
   padding-bottom: 25px;
+  @media (max-width: 660px) {
+    width: 340px;
+    padding: 10px 0px;
+  }
+  @media (max-width: 425px) {
+    width: 305px;
+  }
 }
 
 .forgotPassword__text > span {
   display: block;
   padding-bottom: 10px;
+  @media (max-width: 660px) {
+    padding-bottom: 5px;
+  }
 }
 
 .input__container:not(:last-child) {
@@ -30,6 +60,17 @@
   color: #d84363;
   margin-top: 10px;
   width: 400px;
+  @media (max-width: 660px) {
+    padding-left: 14px;
+    font-size: 12px;
+    width: 360px;
+  }
+  @media (max-width: 425px) {
+    width: 305px;
+  }
+  @media (max-width: 320px) {
+    padding-left: 8px;
+  }
 }
 
 .Close {
@@ -37,8 +78,31 @@
   top: 5px;
   right: -25px;
   cursor: pointer;
+  @media (max-width: 1024px) {
+    top: 0;
+    right: 0px;
+  }
+  @media (max-width: 660px) {
+    top: -8px;
+    right: 40px;
+  }
+  @media (max-width: 425px) {
+    top: -8px;
+    right: -14px;
+  }
+  @media (max-width: 375px) {
+    top: -8px;
+    right: 10px;
+  }
 }
 
 .button__container {
   margin-left: -30px;
+  @media (max-width: 1024px) {
+    margin-top: -30px;
+  }
+  @media (max-width: 660px) {
+    margin-left: 0px;
+    margin-top: -25px;
+  }
 }

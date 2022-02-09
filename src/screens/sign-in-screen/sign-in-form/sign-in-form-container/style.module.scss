@@ -12,6 +12,9 @@
   @media (max-width: 660px) {
     width: 466px;
   }
+  @media (max-width: 466px) {
+    background-color: #242335;
+  }
 }
 
 .signIn__form__title h1 {
@@ -30,12 +33,14 @@
   padding: 63px 108px 10px;
   width: 683px;
   @media (max-width: 1024px) {
-    padding: 33px 280px 0px;
-    width: 1024px;
+    padding: 33px 108px 0px;
+  }
+  @media (max-width: 768px) {
+    padding: 33px 0px 0px;
+    width: 466px;
   }
   @media (max-width: 660px) {
     padding: 33px 73px 0px;
-    width: 466px;
   }
   @media (max-width: 320px) {
     padding: 33px 0px 0px;

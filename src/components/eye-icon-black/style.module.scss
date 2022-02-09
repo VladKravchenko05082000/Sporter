@@ -10,6 +10,9 @@
   height: 20px;
   background: url(../../assets/images/Eye_close_black.svg) no-repeat;
   left: 425px;
+  @media (max-width: 660px) {
+    left: 88%;
+  }
 }
 
 .eye[type="checkbox"]:checked + span {

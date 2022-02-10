@@ -1,6 +1,6 @@
 export const ROUTES = {
   ALL_ADMINS: "/all-admins",
-  ALL_USERS: "all-users",
+  ALL_USERS: "/all-users",
   ADD_USER: "/add-user",
   USER_INFO: "/user-info",
   USER_VIDEOS: "/user-video",

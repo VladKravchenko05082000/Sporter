@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
 
 import Input from "components/input";
 import LoaderBox from "components/loaderBox";
@@ -9,20 +8,31 @@ import { IMAGES } from "utils/images-constant";
 import { STATUSES } from "utils/status-constant/status-constant";
 
 import style from "./style.module.scss";
+import {
+  ConfrimErrorMassage,
+  RegexErrorMassage,
+} from "components/modals/error-modal-step-second";
 
-const ForgetPasswordSecondStep = ({ closeModal }) => {
+const ForgetPasswordSecondStep = ({
+  closeModal,
+  fetchStatus,
+  setFetchStatus,
+}) => {
   const { READY, PENDING } = STATUSES;
-  const { status } = useSelector((state) => state.authReducer);
 
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [fetchStatus, setFetchStatus] = useState(status);
   const [isFocusedModal, setIsFocusedModal] = useState(false);
+  const [compareErrorHandler, setCompareErrorHandler] = useState(false);
 
   const compare = (!!newPassword,
   !!confirmPassword && newPassword === confirmPassword)
     ? true
     : false; //first, we compare input value by boolean condition, then we compare if the strings are equal
+
+  const regexError = compareErrorHandler && !isFocusedModal && !compare; //if focus on input and regex template is false
+
+  const confirmError = !compare && isFocusedModal && compareErrorHandler; //if value in both input not compare, input without focus
 
   const comprasionPassword = () => {
     setFetchStatus(PENDING);
@@ -32,9 +42,6 @@ const ForgetPasswordSecondStep = ({ closeModal }) => {
       window.location.reload();
     }, 2000);
   };
-
-  console.log(fetchStatus);
-
   return (
     <div className={style.modals__container}>
       <h2 className={style.forgotPassword__Title}>Enter the security code</h2>
@@ -52,8 +59,9 @@ const ForgetPasswordSecondStep = ({ closeModal }) => {
             rightIconBlack
             setValue={setNewPassword}
             setIsWhite
-            onFocusOff={true}
-            setIsFocusedModal={setIsFocusedModal}
+            onFocusParentHandler={setIsFocusedModal}
+            isUseInputError={false}
+            setCompareErrorHandler={setCompareErrorHandler}
           />
         </div>
         <div className={style.input__container}>
@@ -63,22 +71,19 @@ const ForgetPasswordSecondStep = ({ closeModal }) => {
             rightIconBlack
             setValue={setConfirmPassword}
             setIsWhite
-            onFocusOff={true}
-            setIsFocusedModal={setIsFocusedModal}
+            onFocusParentHandler={setIsFocusedModal}
+            isUseInputError={false}
+            setCompareErrorHandler={setCompareErrorHandler}
           />
         </div>
       </div>
 
-      {!isFocusedModal && !compare ? (
-        <div className={style.error__massage}>
-          <div>Введите пароль и подтвердите его</div>
-          <br />
-          <div>
-            Пароль должен содержать больше 8 символов, заглавные буквы, цифры и
-            специальные знаки: !#$%^&*
-          </div>
-        </div>
+      {regexError ? (
+        <RegexErrorMassage />
+      ) : confirmError ? (
+        <ConfrimErrorMassage />
       ) : null}
+
       {fetchStatus === PENDING ? <LoaderBox /> : null}
       <div className={style.button__container}>
         <ButtonPurple

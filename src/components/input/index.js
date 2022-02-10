@@ -20,8 +20,9 @@ const Input = ({
   rightIcon, // true or false, if true next to input appear IconComponent
   rightIconBlack,
   setIsWhite,
-  setIsFocusedModal,
-  onFocusOff,
+  onFocusParentHandler = () => {},
+  isUseInputError = true,
+  setCompareErrorHandler = () => {},
 }) => {
   const [isFocused, setIsFocused] = useState(false);
 
@@ -54,20 +55,24 @@ const Input = ({
     } else {
       setValue("");
     }
+
+    if (!isUseInputError && value.length > 0) {
+      setCompareErrorHandler(true);
+    } else {
+      setCompareErrorHandler(false);
+    }
   };
 
   const onBlurHandler = () => {
     setIsFocused(false);
-    if (onFocusOff) {
-      setIsFocusedModal(false);
-    }
+
+    onFocusParentHandler(false);
   };
 
   const onFocusHandler = () => {
     setIsFocused(true);
-    if (onFocusOff) {
-      setIsFocusedModal(true);
-    }
+
+    onFocusParentHandler(true);
   };
 
   const toggleIcon = () => {
@@ -87,7 +92,7 @@ const Input = ({
         onBlur={onBlurHandler}
         onFocus={onFocusHandler}
       />
-      {!isFocused && !!error && !onFocusOff ? (
+      {!isFocused && !!error && isUseInputError ? (
         <div className={style.error__massage}>{error}</div>
       ) : null}
       {rightIcon ? (

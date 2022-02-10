@@ -1,27 +1,41 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import ButtonPurple from "components/purple-button";
 import Input from "components/input";
 import Modals from "components/modals";
 import ForgetPasswordFirstStep from "components/modals/forget-password/forget-password-first-step";
+import ForgetPasswordSecondStep from "components/modals/forget-password/forget-password-second-step";
 
 import { requestLogin } from "store/reducers/auth/action";
 
 import style from "./style.module.scss";
-import ForgetPasswordSecondStep from "components/modals/forget-password/forget-password-second-step";
+
+import { STATUSES } from "utils/status-constant/status-constant";
+import LoaderBox from "components/loaderBox";
 
 const SignInFormContainer = () => {
+  const { status } = useSelector((state) => state.authReducer);
+  const { READY, PENDING } = STATUSES;
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [modalActive, setModalActive] = useState(false);
   const [signInError, setSignInError] = useState("");
   const [step, setStep] = useState(0);
+  const [fetchStatus, setFetchStatus] = useState(status);
 
   const dispatch = useDispatch();
-
   const handleSignIn = () => {
-    dispatch(requestLogin(email, password)).catch((e) => setSignInError(e));
+    setFetchStatus(PENDING);
+    dispatch(requestLogin(email, password))
+      .then(() => {
+        setFetchStatus(READY);
+      })
+      .catch((e) => {
+        setSignInError(e);
+        setFetchStatus(READY);
+      });
   };
 
   const closeModal = () => {
@@ -64,6 +78,7 @@ const SignInFormContainer = () => {
           </div>
         </div>
       </div>
+      {fetchStatus === PENDING ? <LoaderBox /> : null}
       {!!signInError ? (
         <div className={style.wrong__password__or__email}>
           Wrong password or email
@@ -78,11 +93,18 @@ const SignInFormContainer = () => {
       </div>
       {step === 0 ? (
         <Modals active={modalActive} setActive={setModalActive}>
-          <ForgetPasswordFirstStep closeModal={closeModal} setStep={setStep} />
+          <ForgetPasswordFirstStep
+            fetchStatus={fetchStatus}
+            setFetchStatus={setFetchStatus}
+            closeModal={closeModal}
+            setStep={setStep}
+          />
         </Modals>
       ) : (
         <Modals active={modalActive} setActive={setModalActive}>
           <ForgetPasswordSecondStep
+            fetchStatus={fetchStatus}
+            setFetchStatus={setFetchStatus}
             closeModal={closeModal}
             setModalActive={setModalActive}
           />

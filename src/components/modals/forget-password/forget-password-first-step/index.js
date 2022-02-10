@@ -6,18 +6,21 @@ import Input from "components/input";
 import ButtonPurple from "components/purple-button";
 
 import { IMAGES } from "utils/images-constant";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { requestResetPasswordSendCode } from "store/reducers/auth/action";
 import { STATUSES } from "utils/status-constant/status-constant";
 import LoaderBox from "components/loaderBox";
 
-const ForgetPasswordFirstStep = ({ closeModal, setStep }) => {
+const ForgetPasswordFirstStep = ({
+  closeModal,
+  setStep,
+  setFetchStatus,
+  fetchStatus,
+}) => {
   const { READY, PENDING } = STATUSES;
-  const { status } = useSelector((state) => state.authReducer);
 
   const [emailModal, setEmailModal] = useState("");
   const [emailModalError, setEmailModalError] = useState("");
-  const [fetchStatus, setFetchStatus] = useState(status);
 
   const dispatch = useDispatch();
 

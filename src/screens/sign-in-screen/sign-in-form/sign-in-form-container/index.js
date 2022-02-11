@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import ButtonPurple from "components/purple-button";
@@ -37,6 +37,12 @@ const SignInFormContainer = () => {
         setFetchStatus(READY);
       });
   };
+
+  useEffect(() => {
+    return () => {
+      setFetchStatus(status);
+    };
+  }, []);
 
   const closeModal = () => {
     setStep(0);

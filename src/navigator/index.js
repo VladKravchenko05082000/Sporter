@@ -9,11 +9,18 @@ import SingInRoute from "./sign-in-route";
 import PrivateRoute from "./private-route";
 import AllUsers from "screens/all-users";
 import SignInForm from "screens/sign-in-screen/sign-in-form";
+import UserInfo from "screens/user-info";
 
-const { ALL_USERS } = ROUTES;
+const { ALL_USERS, USER_INFO } = ROUTES;
 
 const Navigator = () => {
-  const PRIVATEROUTES = [{ path: ALL_USERS, component: AllUsers }];
+  const PRIVATEROUTES = [
+    { path: ALL_USERS, component: AllUsers },
+    {
+      path: USER_INFO + "/:userId/:tabItem/",
+      component: UserInfo,
+    },
+  ];
   return (
     <Router>
       <Switch>

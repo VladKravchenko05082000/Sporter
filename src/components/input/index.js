@@ -22,7 +22,7 @@ const Input = ({
   setIsWhite,
   onFocusParentHandler = () => {},
   isUseInputError = true,
-  setCompareErrorHandler = () => {},
+  setErrorCompareHandler = () => {},
 }) => {
   const [isFocused, setIsFocused] = useState(false);
 
@@ -57,9 +57,9 @@ const Input = ({
     }
 
     if (!isUseInputError && value.length > 0) {
-      setCompareErrorHandler(true);
+      setErrorCompareHandler(true);
     } else {
-      setCompareErrorHandler(false);
+      setErrorCompareHandler(false);
     }
   };
 

@@ -23,16 +23,17 @@ const ForgetPasswordSecondStep = ({
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [isFocusedModal, setIsFocusedModal] = useState(false);
-  const [compareErrorHandler, setCompareErrorHandler] = useState(false);
+  const [errorCompareHandler, setErrorCompareHandler] = useState(false);
 
-  const compare = (!!newPassword,
+  const equality = (!!newPassword,
   !!confirmPassword && newPassword === confirmPassword)
     ? true
     : false; //first, we compare input value by boolean condition, then we compare if the strings are equal
 
-  const regexError = compareErrorHandler && !isFocusedModal && !compare; //if focus on input and regex template is false
+  const regexError =
+    !isFocusedModal && errorCompareHandler && !newPassword && !confirmPassword; //if focus on input and regex template is false
 
-  const confirmError = !compare && isFocusedModal && compareErrorHandler; //if value in both input not compare, input without focus
+  const confirmError = !isFocusedModal && errorCompareHandler && !equality; //if value in both input not compare
 
   const comprasionPassword = () => {
     setFetchStatus(PENDING);
@@ -42,6 +43,7 @@ const ForgetPasswordSecondStep = ({
       window.location.reload();
     }, 2000);
   };
+
   return (
     <div className={style.modals__container}>
       <h2 className={style.forgotPassword__Title}>Enter the security code</h2>
@@ -61,7 +63,7 @@ const ForgetPasswordSecondStep = ({
             setIsWhite
             onFocusParentHandler={setIsFocusedModal}
             isUseInputError={false}
-            setCompareErrorHandler={setCompareErrorHandler}
+            setErrorCompareHandler={setErrorCompareHandler}
           />
         </div>
         <div className={style.input__container}>
@@ -73,22 +75,17 @@ const ForgetPasswordSecondStep = ({
             setIsWhite
             onFocusParentHandler={setIsFocusedModal}
             isUseInputError={false}
-            setCompareErrorHandler={setCompareErrorHandler}
+            setErrorCompareHandler={setErrorCompareHandler}
           />
         </div>
       </div>
-
-      {regexError ? (
-        <RegexErrorMassage />
-      ) : confirmError ? (
-        <ConfrimErrorMassage />
-      ) : null}
-
+      {regexError ? <RegexErrorMassage /> : null}
+      {confirmError ? <ConfrimErrorMassage /> : null}
       {fetchStatus === PENDING ? <LoaderBox /> : null}
       <div className={style.button__container}>
         <ButtonPurple
           text="Save"
-          disabled={compare}
+          disabled={equality}
           onClick={comprasionPassword}
         />
       </div>
